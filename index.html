@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>My website</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+  </body>
+</html>
+
+<script>
+  const obj = [
+    {
+      name: 'Ion',
+      math: 4,
+      science: 10,
+    },
+    {
+      name: 'Ana',
+      math: 8,
+      science: 4,
+    },
+    {
+      name: 'Alex',
+      math: 7,
+      science: 1,
+    },
+  ];
+  const list = document.getElementById('list');
+  obj.forEach((item) => {
+    const listElement = document.createElement('li');
+    listElement.style.color = item.math > 5 ? 'green' : 'red';
+    listElement.className = item.math > 5 ? 'success' : 'danger';
+    const text = document.createTextNode(item.name);
+    listElement.appendChild(text);
+    list.appendChild(listElement);
+  });
+
+  //map
+  obj
+    .map((item) => {
+      const listElement = document.createElement('li');
+      listElement.style.color = item.math > 5 ? 'green' : 'red';
+      const text = document.createTextNode(item.name);
+      listElement.appendChild(text);
+      return listElement;
+    })
+    .map((HTMLElementItem) => list.appendChild(HTMLElementItem));
+</script>
+
+<style>
+  .message,
+  .success,
+  .danger {
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+    color: blue;
+  }
+  .message-2 {
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+    color: pink;
+  }
+  .success {
+    color: green;
+  }
+  .danger {
+    color: red;
+  }
+</style>
